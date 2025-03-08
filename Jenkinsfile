@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                sh 'scp -o StrictHostKeyChecking=no target/*.war ubuntu@18.204.216.196:/apache-tomcat-10.1.36/webapps/'
+                sh 'sshpass -p "ubuntu" scp target/*.war ubuntu@18.204.216.196:/home/ubuntu/apache-tomcat-10.1.36/webapps'
             }
         }
     }
