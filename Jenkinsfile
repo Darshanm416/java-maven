@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                sh 'scp target/*.war ubuntu@18.204.216.196:/home/ubuntu/apache-tomcat-10.1.36/webapps'
+                sh 'scp /var/lib/jenkins/workspace/java-maven/target/*.war ubuntu@18.204.216.196:/home/ubuntu/apache-tomcat-10.1.36/webapps'
             }
         }
     }
