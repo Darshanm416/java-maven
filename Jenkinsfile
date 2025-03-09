@@ -22,7 +22,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                sh 'scp /var/lib/jenkins/workspace/java-maven/target/*.war ubuntu@18.204.216.196:/home/ubuntu/apache-tomcat-10.1.36/webapps'
+                sh 'scp -o StrictHostKeyChecking=no target/*.war jenkins@44.202.142.249:/opt/tomcat/apache-tomcat-10.1.39/webapps/'
+                sh 'ssh -o StrictHostKeyChecking=no jenkins@44.202.142.249 "sudo systemctl restart tomcat"'
             }
         }
     }
